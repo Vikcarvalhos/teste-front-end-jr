@@ -454,4 +454,49 @@
             }
         }
     }
+    .brands-section {
+        text-align: center;
+        width: 1266px;
+        padding: 2rem 0;
+        margin: 0 auto;
+
+        .brands-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+          }
+
+          .brands-carousel {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            width: 100%;
+
+            .brand-card {
+                width: 211px;
+                height: 211px;
+                border-radius: 50%;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+                img {
+                    max-width: 60%;
+                    max-height: 60%;
+                  }
+              }
+          }
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+      
 }

@@ -10,6 +10,7 @@ import Esportes from '../assets/images/Esportes.svg';
 import Moda from '../assets/images/Moda.svg';
 import Left from '../assets/icons/LeftArrow.svg';
 import Right from '../assets/icons/RightArrow.svg';
+import VTEXLogo from '../assets/icons/Logo.svg';
 
 interface Product {
   productName: string;
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [modalProduct, setModalProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
+  const brands = new Array(4).fill(VTEXLogo);
   const productsPerSlide = 4;
 
   useEffect(() => {
@@ -205,7 +207,16 @@ const Home: React.FC = () => {
             <button className="btn">CONFIRA</button>
           </div>
         </div>
-        
+      </section>
+      <section className="brands-section">
+        <h2 className="brands-title">Navegue por marcas</h2>
+        <div className="brands-carousel">
+          {brands.map((brand, index) => (
+            <div key={index} className="brand-card">
+              <img src={brand} alt={`Brand ${index + 1}`} />
+            </div>
+          ))}
+        </div>
       </section>
 
       {modalProduct && (
