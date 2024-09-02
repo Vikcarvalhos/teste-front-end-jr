@@ -1,31 +1,55 @@
-# Teste Econverse: Vaga Desenvolvedor Front-End Jr
+# Teste Front-End Jr - Econverse
 
-### Vem ser #Econverse!
+## Descrição do Projeto
 
-Segue abaixo as instruções para a execução do teste.
+Este projeto foi desenvolvido como parte do processo seletivo para a vaga de Desenvolvedor Front-End Jr na Econverse. A aplicação foi construída em React com TypeScript, respeitando as especificações técnicas fornecidas e o layout disponível no Figma.
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail ana.nascimento@econverse.com.br, joao.victor@econverse.com.br e eduardo.rodrigues@econverse.com.br com o título **Teste Vaga FrontEnd Jr**
+## Tecnologias Utilizadas
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+- **React**: Biblioteca JavaScript para construção de interfaces de usuário.
+- **TypeScript**: Superconjunto de JavaScript que adiciona tipagem estática ao código.
+- **Sass**: Pré-processador CSS utilizado para modularizar e melhorar a manutenção do código de estilo.
+- **Node.js**: Ambiente de execução JavaScript utilizado para configurar e rodar o servidor.
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+## Pré-requisitos
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+Antes de iniciar, certifique-se de ter o [Node.js](https://nodejs.org/) instalado na sua máquina.
 
-**Boa sorte! ;)**
+## Instruções para Rodar o Projeto
+
+Siga os passos abaixo para configurar e iniciar o projeto localmente:
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/Vikcarvalhos/teste-front-end-jr.git
+   ```
+
+2. Acesse o diretório do projeto:
+   ```
+   cd teste-front-end-jr
+   ```
+
+3. Instale as dependências:
+   ```
+   npm install
+   ```
+
+4. Inicie o servidor e a aplicação:
+   - Para iniciar o servidor:
+   ```
+   npx tpx server.ts
+   ```
+
+   - Para iniciar a aplicação:
+   ```
+   npm run dev
+   ```
+
+5. Abra a aplicação:
+   - A aplicação estará disponível em http://localhost:5173/. Caso não esteja nesse, verifique no terminal em qual porta a aplicação está rodando.
+
+## Considerações Finais
+
+Este projeto foi desenvolvido com foco em boas práticas de código, componentização e respeito ao layout especificado no Figma. Qualquer dúvida ou feedback é bem-vindo!
+   
