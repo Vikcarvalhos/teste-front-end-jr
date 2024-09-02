@@ -64,7 +64,6 @@ const Home: React.FC = () => {
 
   return (
     <main className="main-container">
-      {/* Primeira Seção: Banner de Promoções */}
       <section className="promo-banner">
         <div className="banner-content">
           <h1>Venha conhecer nossas promoções</h1>
@@ -72,8 +71,6 @@ const Home: React.FC = () => {
           <a href="/produtos" className="btn">Ver produto</a>
         </div>
       </section>
-
-      {/* Segunda Seção: Categorias de Produtos */}
       <section className="product-categories">
         <div className='category-card'>
           <div className='category-img'>
@@ -133,16 +130,13 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Terceira Seção: Produtos Relacionados */}
       <section className="related-products">
-        {/* Título "Produtos Relacionados" com linhas horizontais */}
         <h2 className="related-title">
           <span className="line"></span>
           Produtos relacionados
           <span className="line"></span>
         </h2>
 
-        {/* Lista de categorias */}
         <ul className="related-products-category">
           <li>Celular</li>
           <li>Acessórios</li>
@@ -152,7 +146,6 @@ const Home: React.FC = () => {
           <li>Ver Todos</li>
         </ul>
 
-        {/* Carrossel dos produtos */}
         <div className="carousel-container">
           <button className="carousel-button prev" onClick={prevSlide}><img src={Left} alt="Previous" /></button>
           <div className="product-cards">
@@ -184,7 +177,6 @@ const Home: React.FC = () => {
           <button className="btn">CONFIRA</button>
         </div>
       </section>
-
 
       <section className="related-section">
         <div className='related-container'>
