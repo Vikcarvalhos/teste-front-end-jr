@@ -8,6 +8,8 @@ import Ferramentas from '../assets/images/Ferramentas.svg';
 import Saude from '../assets/images/Saude.svg';
 import Esportes from '../assets/images/Esportes.svg';
 import Moda from '../assets/images/Moda.svg';
+import Left from '../assets/icons/LeftArrow.svg';
+import Right from '../assets/icons/RightArrow.svg';
 
 interface Product {
   productName: string;
@@ -19,6 +21,8 @@ interface Product {
 const Home: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [modalProduct, setModalProduct] = useState<Product | null>(null);
+  const [quantity, setQuantity] = useState(1);
   const productsPerSlide = 4;
 
   useEffect(() => {
@@ -34,6 +38,23 @@ const Home: React.FC = () => {
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + Math.ceil(products.length / productsPerSlide)) % Math.ceil(products.length / productsPerSlide));
+  };
+
+  const openModal = (product: Product) => {
+    setModalProduct(product);
+    setQuantity(1);
+  };
+
+  const closeModal = () => {
+    setModalProduct(null);
+  };
+
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
   const startIndex = currentSlide * productsPerSlide;
@@ -131,21 +152,82 @@ const Home: React.FC = () => {
 
         {/* Carrossel dos produtos */}
         <div className="carousel-container">
-          <button className="carousel-button prev" onClick={prevSlide}>{"<"}</button>
+          <button className="carousel-button prev" onClick={prevSlide}><img src={Left} alt="Previous" /></button>
           <div className="product-cards">
             {visibleProducts.map((product, index) => (
               <div className="product-card" key={index}>
                 <img src={product.photo} alt={product.productName} />
                 <h3>{product.productName}</h3>
-                <p className='cut-price'>R$ {product.price.toFixed(2)}</p>
-                <p className="price">R$ {product.price.toFixed(2)}</p>
-                <button className="buy-button">Comprar</button>
+                <p className='cut-price'>R$ {(product.price + (product.price * 0.10)) .toFixed(2)}</p>
+                <p className="price">R$ {(product.price).toFixed(2)}</p>
+                <p className='credit'>ou 2x de R$ {(product.price * 0.10 / 2).toFixed(2)} sem juros</p>
+                <p className='shipping-value'>Frete grátis</p>
+                <button className="buy-button" onClick={() => openModal(product)}>Comprar</button>
               </div>
             ))}
           </div>
-          <button className="carousel-button next" onClick={nextSlide}>{">"}</button>
+          <button className="carousel-button next" onClick={nextSlide}><img src={Right} alt="Next" /></button>
         </div>
       </section>
+
+      <section className="partners-section">
+        <div className="partner-card">
+          <h3>Parceiros</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+          <button className="btn">CONFIRA</button>
+        </div>
+        <div className="partner-card">
+          <h3>Parceiros</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+          <button className="btn">CONFIRA</button>
+        </div>
+      </section>
+
+
+      <section className="related-section">
+        <div className='related-container'>
+          <h2 className="related-title">
+              <span className="line"></span>
+              Produtos relacionados
+              <span className="line"></span>
+          </h2>
+          <p>Ver todos</p>
+        </div>
+        <div className='related-cards'>
+          <div className="related-card">
+            <h3>Produtos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+            <button className="btn">CONFIRA</button>
+          </div>
+          <div className="related-card">
+            <h3>Produtos</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur</p>
+            <button className="btn">CONFIRA</button>
+          </div>
+        </div>
+        
+      </section>
+
+      {modalProduct && (
+        <div className="modal">
+          <div className="modal-content">
+            <img src={modalProduct.photo} alt={modalProduct.productName} className="modal-image" />
+            <div className="modal-details">
+              <h3>{modalProduct.productName}</h3>
+              <p className="price">R$ {(modalProduct.price).toFixed(2)}</p>
+              <p className='product-description'>{modalProduct.descriptionShort}</p>
+              <p className="more-details">Veja mais detalhes do produto &gt;</p>
+              <div className="quantity-control">
+                <button onClick={decreaseQuantity}>-</button>
+                <span>{quantity}</span>
+                <button onClick={increaseQuantity}>+</button>
+              </div>
+              <button className="buy-button">Comprar</button>
+            </div>
+            <button className="close-modal" onClick={closeModal}>X</button>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
